@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
 
-    <title>Time until Byron doesn't get to tell me what to do anymore</title>
+    <title>
+      Time left until Byron doesn't get to tell me what to do anymore
+    </title>
 
     <style>
       body {
@@ -63,14 +65,10 @@
 
         let tenths = Math.floor(difference / 100);
 
-        document.getElementById(
-          "clock"
-        ).innerHTML = `${days}:${hours}:${zeroPad(min)}:${zeroPad(
-          seconds
-        )}.${tenths}`;
+        document.getElementById("clock").innerHTML = `${days}:${zeroPad(
+          hours
+        )}:${zeroPad(min)}:${zeroPad(seconds)}.${tenths}`;
       }
-
-      showTime();
     </script>
   </body>
 </html>
