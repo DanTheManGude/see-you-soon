@@ -1,4 +1,4 @@
-const END_TIME = Date.parse("17 Sept 2022 01:13:00 EDT");
+const END_TIME = Date.parse("6 Oct 2022 11:30 PM EDT");
 // Make sure the date is formated correctly
 
 function zeroPad(num) {
