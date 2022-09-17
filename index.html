@@ -38,6 +38,7 @@
     <script>
       const endTime = Date.parse("18 Dec 2020 17:00:00 EST");
       setInterval(showTime, 100);
+
       function zeroPad(num) {
         if (num >= 10) {
           return num;
@@ -47,7 +48,7 @@
 
       function showTime() {
         let now = Date.now();
-        let difference = endTime - now;
+        let difference = Math.abs(endTime - now);
 
         let days = Math.floor(difference / (24 * 60 * 60 * 1000));
         difference = difference - days * 24 * 60 * 60 * 1000;
