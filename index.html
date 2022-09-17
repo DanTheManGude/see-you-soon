@@ -21,12 +21,17 @@
       #clock {
         font-family: "digital";
         font-size: 200px;
-        color: #f32e2e;
         width: min-content;
         margin: auto;
         text-align: center;
         border: 2px solid rgb(207, 207, 207);
         border-radius: 20px;
+      }
+      .down {
+        color: #e74d4d;
+      }
+      .up {
+        color: #4cef7a;
       }
     </style>
   </head>
@@ -35,39 +40,6 @@
     <h1>Time left until we are together again</h1>
     <div id="clock"></div>
 
-    <script>
-      const endTime = Date.parse("18 Dec 2020 17:00:00 EST");
-      setInterval(showTime, 100);
-
-      function zeroPad(num) {
-        if (num >= 10) {
-          return num;
-        }
-        return `0${num}`;
-      }
-
-      function showTime() {
-        let now = Date.now();
-        let difference = Math.abs(endTime - now);
-
-        let days = Math.floor(difference / (24 * 60 * 60 * 1000));
-        difference = difference - days * 24 * 60 * 60 * 1000;
-
-        let hours = Math.floor(difference / (60 * 60 * 1000));
-        difference = difference - hours * 60 * 60 * 1000;
-
-        let min = Math.floor(difference / (60 * 1000));
-        difference = difference - min * 60 * 1000;
-
-        let seconds = Math.floor(difference / 1000);
-        difference = difference - seconds * 1000;
-
-        let tenths = Math.floor(difference / 100);
-
-        document.getElementById("clock").innerHTML = `${days}:${zeroPad(
-          hours
-        )}:${zeroPad(min)}:${zeroPad(seconds)}.${tenths}`;
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
