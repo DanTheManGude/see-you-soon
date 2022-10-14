@@ -1,3 +1,3 @@
-# See you soon
+# Time Until ...
 
 Countdown time until event
