@@ -48,9 +48,8 @@ function getShowTime(endTime) {
   };
 }
 
-const path = window.location.pathname;
-const cleanPath = path.endsWith("/") ? path.slice(0, -1) : path;
-const eventKey = cleanPath.split("/").at(-1);
+const searchParams = new URLSearchParams(window.location.search);
+const eventKey = searchParams.get("key");
 
 const eventObj = events.hasOwnProperty(eventKey)
   ? events[eventKey]
