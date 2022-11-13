@@ -10,12 +10,7 @@ const events = {
     color: "#b35c2d",
   },
 };
-
-const defaultEvent = {
-  endTime: Date.now(),
-  text: "...",
-  color: "#f2f2f2",
-};
+const clockElement = document.getElementById("clock");
 
 function zeroPad(num) {
   if (num >= 10) {
@@ -46,24 +41,50 @@ function getShowTime(endTime) {
     const displayTime = `${days}:${zeroPad(hours)}:${zeroPad(min)}:${zeroPad(
       seconds
     )}.${tenths}`;
-    const clockElement = document.getElementById("clock");
 
     clockElement.innerHTML = displayTime;
     clockElement.classList.add(endTime >= now ? "down" : "up");
   };
 }
 
+const updateheader = (content, color) => {
+  const headerElemnt = document.getElementById("header");
+
+  headerElemnt.innerHTML = content;
+  headerElemnt.style.color = color;
+};
+
 const searchParams = new URLSearchParams(window.location.search);
 const eventKey = searchParams.get("key");
+const doesEventExist = events.hasOwnProperty(eventKey);
 
-const eventObj = events.hasOwnProperty(eventKey)
-  ? events[eventKey]
-  : defaultEvent;
+if (doesEventExist) {
+  const { endTime, text, color } = events[eventKey];
 
-const { endTime, text, color } = eventObj;
+  setInterval(getShowTime(endTime), 100);
 
-setInterval(getShowTime(endTime), 100);
+  updateheader(`Time left until ${text}`, color);
+} else {
+  updateheader("Upcoming Events", "#f2f2f2");
+  const eventList = document.createElement("ul");
 
-const headerElemnt = document.getElementById("header");
-headerElemnt.style.color = color;
-headerElemnt.innerHTML = `Time left until ${text}`;
+  Object.keys(events).forEach((eventKey) => {
+    const listItem = document.createElement("li");
+    const eventItem = document.createElement("span");
+    const eventname = document.createElement("a");
+    listItem.style.padding = "8px 0";
+    eventname.setAttribute("href", `index.html?key=${eventKey}`);
+
+    const event = events[eventKey];
+    eventname.innerHTML = event.text;
+    eventname.style.color = event.color;
+    eventItem.appendChild(eventname);
+    listItem.appendChild(eventItem);
+    eventList.appendChild(listItem);
+  });
+  clockElement.appendChild(eventList);
+  clockElement.style.fontSize = "28px";
+  clockElement.style.textAlign = "left";
+  clockElement.style.width = "400px";
+  clockElement.style.color = "#f2f2f2";
+}
