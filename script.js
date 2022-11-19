@@ -1,6 +1,6 @@
 const events = {
   "see-you-soon": {
-    endTime: Date.parse("26 Oct 2022 6:10 PM EDT"),
+    endTime: Date.parse("22 November 2022 3:00 PM EDT"),
     text: "we are together",
     color: "#a978f7",
   },
