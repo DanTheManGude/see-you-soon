@@ -9,6 +9,11 @@ const events = {
     text: "Meghan's Wedding",
     color: "#b35c2d",
   },
+  "meghans-honeymoon": {
+    endTime: Date.parse("25 May 2023 10:30 AM EDT"),
+    text: "Meghan's Honeymoon",
+    color: "#eb4034",
+  },
 };
 const clockElement = document.getElementById("clock");
 
