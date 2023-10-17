@@ -4,16 +4,6 @@ const events = {
     text: "we are together",
     color: "#a978f7",
   },
-  "meghans-wedding": {
-    endTime: Date.parse("4 March 2023 4:00 PM EDT"),
-    text: "Meghan's Wedding",
-    color: "#b35c2d",
-  },
-  "meghans-honeymoon": {
-    endTime: Date.parse("25 May 2023 10:30 AM EDT"),
-    text: "Meghan's Honeymoon",
-    color: "#eb4034",
-  },
 };
 const clockElement = document.getElementById("clock");
 
